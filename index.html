@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Java Buzz - Modern Coffee Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Java Buzz, Coffee, Coffee Shop, Online Orders, Coffee Menu, Blog">
+    <meta name="description"
+        content="Java Buzz Coffee Shop - Enjoy premium coffee, order online, explore our menu and blog updates.">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Leaflet for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.min.css" rel="stylesheet">
+
+    <style>
+        /* Custom Java Buzz colors */
+        body {
+            background-color: #f4f1ee;
+            color: #4b3e2b;
+        }
+
+        .navbar {
+            background-color: #6b4f3a;
+        }
+
+        .btn-primary {
+            background-color: #6b4f3a;
+            border: none;
+        }
+
+        .text-primary {
+            color: #a68c6b !important;
+        }
+
+        .overlay-top::before,
+        .overlay-bottom::after {
+            background: rgba(107, 79, 58, 0.6);
+        }
+
+        #map {
+            height: 400px;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0 nav-bar">
+        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+            <a href="index.html" class="navbar-brand px-lg-4 m-0">
+                <h1 class="m-0 display-4 text-uppercase text-white">JAVA BUZZ</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto p-4">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="service.html" class="nav-item nav-link">Service</a>
+                    <a href="menu.html" class="nav-item nav-link">Menu</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu text-capitalize">
+                            <a href="reservation.html" class="dropdown-item active">Reservation</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Carousel / Hero Start -->
+    <div class="container-fluid p-0 mb-5" id="home">
+        <div id="hero-carousel" class="carousel slide overlay-bottom" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="img/carousel-1.jpg" alt="Coffee Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <h2 class="text-primary font-weight-medium m-0">Welcome to</h2>
+                        <h1 class="display-1 text-white m-0">Java Buzz</h1>
+                        <h2 class="text-white m-0">Premium Coffee Experience</h2>
+                        <a href="#order" class="btn btn-primary mt-3 py-2 px-4">Order Online</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="img/carousel-2.jpg" alt="Coffee Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <h2 class="text-primary font-weight-medium m-0">Freshly Brewed</h2>
+                        <h1 class="display-1 text-white m-0">COFFEE</h1>
+                        <h2 class="text-white m-0">Made With Love</h2>
+                        <a href="#order" class="btn btn-primary mt-3 py-2 px-4">Order Online</a>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#hero-carousel" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#hero-carousel" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+    <!-- About / Story Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="section-title">
+                <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h4>
+                <h1 class="display-4">Our Coffee Story</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 py-0 py-lg-5">
+                    <h1 class="mb-3">Our Journey</h1>
+                    <h5 class="mb-3">Serving quality coffee since our opening</h5>
+                    <p>Java Buzz was founded with the passion for brewing high-quality coffee for everyone. We focus on
+                        sustainability, organic beans, and modern techniques to make every cup perfect.</p>
+                    <a href="#menu" class="btn btn-secondary font-weight-bold py-2 px-4 mt-2">Explore Menu</a>
+                </div>
+                <div class="col-lg-4 py-5 py-lg-0" style="min-height: 500px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute w-100 h-100" src="img/about.png" style="object-fit: cover;">
+                    </div>
+                </div>
+                <div class="col-lg-4 py-0 py-lg-5">
+                    <h1 class="mb-3">Our Vision</h1>
+                    <p>To create a modern coffee experience where everyone feels at home. Fresh, organic beans and a
+                        welcoming environment are our priorities.</p>
+                    <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Organic Beans</h5>
+                    <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Freshly Brewed</h5>
+                    <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Community Friendly</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+    <!-- Menu Start -->
+    <div class="container-fluid pt-5" id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Menu & Pricing</h4>
+                <h1 class="display-4">Our Specialty Coffees</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="mb-5">Hot Coffee</h1>
+                    <div class="row align-items-center mb-5">
+                        <div class="col-4 col-sm-3">
+                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="img/menu-1.jpg" alt="">
+                            <h5 class="menu-price">$5</h5>
+                        </div>
+                        <div class="col-8 col-sm-9">
+                            <h4>Espresso</h4>
+                            <p>Strong, bold, and aromatic espresso.</p>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mb-5">
+                        <div class="col-4 col-sm-3">
+                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="img/menu-2.jpg" alt="">
+                            <h5 class="menu-price">$6</h5>
+                        </div>
+                        <div class="col-8 col-sm-9">
+                            <h4>Cappuccino</h4>
+                            <p>Creamy cappuccino with a perfect foam layer.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="mb-5">Cold Coffee</h1>
+                    <div class="row align-items-center mb-5">
+                        <div class="col-4 col-sm-3">
+                            <img class="w-100 rounded-circle mb-3 mb-sm-0" src="img/menu-3.jpg" alt="">
+                            <h5 class="menu-price">$7</h5>
+                        </div>
+                        <div class="col-8 col-sm-9">
+                            <h4>Iced Latte</h4>
+                            <p>Refreshing iced latte with milk and espresso.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Menu End -->
+
+    <!-- Location Start -->
+    <div class="container-fluid py-5" id="location">
+        <div class="container">
+            <div class="section-title">
+                <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Location</h4>
+                <h1 class="display-4">Find Java Buzz</h1>
+            </div>
+            <div id="map"></div>
+            <p><strong>Address:</strong> 123 Coffee Street, Brewtown</p>
+            <p><strong>Parking:</strong> Available behind the café</p>
+        </div>
+    </div>
+    <!-- Location End -->
+
+    <!-- Blog Start -->
+    <div class="container-fluid py-5" id="blog">
+        <div class="container">
+            <div class="section-title">
+                <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Blog</h4>
+                <h1 class="display-4">Latest Updates</h1>
+            </div>
+            <div class="row" id="blog-entries">
+                <!-- Blog posts will be dynamically loaded via JS -->
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+
+    <!-- Online Order Start -->
+    <div class="container-fluid py-5" id="order">
+        <div class="container">
+            <div class="section-title">
+                <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Order Online</h4>
+                <h1 class="display-4">Get Your Coffee Delivered</h1>
+            </div>
+            <form id="orderForm">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input type="text" class="form-control" placeholder="Name" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="email" class="form-control" placeholder="Email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <select class="form-control">
+                        <option selected>Select Coffee</option>
+                        <option>Espresso</option>
+                        <option>Cappuccino</option>
+                        <option>Iced Latte</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Place Order</button>
+                <div id="successMessage" class="alert alert-success mt-3 d-none">
+                    ✅ Your order has been placed successfully!
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Online Order End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
+        <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Get In Touch</h4>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>123 Coffee Street, Brewtown</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
+                <p class="m-0"><i class="fa fa-envelope mr-2"></i>info@javabuzz.com</p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Online Order Start -->
+    <div class="container-fluid py-5" id="order">
+        <div class="container">
+            <div class="section-title">
+                <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Order Online</h4>
+                <h1 class="display-4">Get Your Coffee Delivered</h1>
+                <p>Fill out the form below to place your order. We’ll contact you to confirm and deliver your coffee!
+                </p>
+            </div>
+            <form id="orderForm">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input type="text" class="form-control" placeholder="Your Name" id="name" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="email" class="form-control" placeholder="Email Address" id="email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input type="text" class="form-control" placeholder="Phone Number" id="phone" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="text" class="form-control" placeholder="Delivery Address" id="address" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" id="coffeeSelect" required>
+                        <option selected disabled>Select Coffee</option>
+                        <option>Espresso</option>
+                        <option>Cappuccino</option>
+                        <option>Iced Latte</option>
+                        <option>Mocha</option>
+                        <option>Black Coffee</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" id="sizeSelect" required>
+                        <option selected disabled>Select Size</option>
+                        <option>Small</option>
+                        <option>Medium</option>
+                        <option>Large</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" id="notes" rows="3"
+                        placeholder="Additional Notes (Optional)"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block py-3">Place Order</button>
+            </form>
+
+            <!-- Success Message -->
+            <div id="orderSuccess" class="alert alert-success mt-4" style="display:none;">
+                Thank you! Your order has been received. We'll contact you shortly.
+            </div>
+        </div>
+    </div>
+    <!-- Online Order End -->
+
+    <script>
+        // Leaflet map
+        var map = L.map('map').setView([40.7128, -74.0060], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        L.marker([40.7128, -74.0060]).addTo(map)
+            .bindPopup('Java Buzz Coffee Shop')
+            .openPopup();
+
+        // Dynamic blog posts from JSON
+        const blogs = [
+            { title: "Our Winter Blend", date: "2026-01-15", content: "Try our aromatic winter blend now!" },
+            { title: "5 Brewing Tips", date: "2026-01-10", content: "Improve your coffee skills with these tips." },
+            { title: "Meet Our Baristas", date: "2026-01-05", content: "Learn about the team behind your coffee." },
+            { title: "Organic Beans", date: "2026-01-01", content: "We only use organic coffee beans." },
+            { title: "Coffee & Health", date: "2025-12-28", content: "Benefits of drinking coffee daily." },
+            { title: "New Menu Items", date: "2025-12-20", content: "Check out our seasonal coffee specials." },
+            { title: "Customer Stories", date: "2025-12-15", content: "Read our client experiences." },
+            { title: "Gift Cards Available", date: "2025-12-10", content: "Buy a gift card for coffee lovers." },
+            { title: "Holiday Schedule", date: "2025-12-05", content: "Special hours for the holidays." },
+        ];
+
+        const blogSection = document.getElementById('blog-entries');
+        blogs.forEach(blog => {
+            const div = document.createElement('div');
+            div.className = 'col-lg-4 mb-4';
+            div.innerHTML = `<div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">${blog.title}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">${blog.date}</h6>
+                    <p class="card-text">${blog.content}</p>
+                </div>
+            </div>`;
+            blogSection.appendChild(div);
+        });
+
+        //order
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById('orderForm');
+            const successMsg = document.getElementById('orderSuccess');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent page reload
+
+                // Collect values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const address = document.getElementById('address').value;
+                const coffee = document.getElementById('coffeeSelect').value;
+                const size = document.getElementById('sizeSelect').value;
+                const notes = document.getElementById('notes').value;
+
+                // Simple validation (optional)
+                if (!name || !email || !phone || !address || !coffee || !size) {
+                    alert("Please fill all required fields!");
+                    return;
+                }
+
+                // Log order in console
+                console.log("New Order:", { name, email, phone, address, coffee, size, notes });
+
+                // Show success message
+                successMsg.style.display = 'block';
+
+                // Reset form
+                form.reset();
+            });
+        });
+
+
+        // Form first wala
+
+        document.getElementById("orderForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let message = document.getElementById("successMessage");
+            message.classList.remove("d-none");
+
+            this.reset();
+
+            setTimeout(function () {
+                message.classList.add("d-none");
+            }, 3000);
+        });
+
+
+    </script>
+</body>
+
+</html>
